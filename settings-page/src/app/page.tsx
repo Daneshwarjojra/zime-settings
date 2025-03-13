@@ -40,8 +40,8 @@ export default function Home() {
   return (
     <div className="grid lg:grid-flow-col lg:gird-cols-2 h-full w-full">
       <div className="zime-sidebar col-span-1"></div>
-      <div className="grid lg:grid-flow-col lg:gird-cols-1 col-span-1 mt-[60px] gap-x-4 lg:pe-[72px] md:pe[48px] pe-[24px]">
-        <div className="zime-settings-fow col-span-1">
+      <div className="grid lg:grid-flow-col lg:gird-cols-1 col-span-1 mt-[60px] gap-x-4 lg:pe-[72px] md:pe[48px] px-[24px]">
+        <div className="zime-settings-fow col-span-1 mt-[40px] lg:mt-0">
           <h1 className="text-xl font-bold">Settings</h1>
           <p className="text-l font-regular text-grey">Mangae your account settings and preferences</p>
           <ProfileSettings updateProgress={updateProgress} />

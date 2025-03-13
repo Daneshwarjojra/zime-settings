@@ -34,7 +34,7 @@ const AdminSettings = ({ updateProgress }: ProfileProps) => {
                         <button
                             key={key}
                             onClick={() => toggleConnection(key as keyof typeof connections)}
-                            className={`flex items-center justify-between p-4 border rounded-md ${connections[key as keyof typeof connections]
+                            className={`flex items-center justify-between flex-col md:flex-row p-4 border rounded-md ${connections[key as keyof typeof connections]
                                 ? "bg-green-100 border-green-400"
                                 : "bg-gray-100 border-gray-300"
                                 }`}
@@ -56,7 +56,7 @@ const AdminSettings = ({ updateProgress }: ProfileProps) => {
                         <button
                             key={key}
                             onClick={() => toggleConnection(key as keyof typeof connections)}
-                            className={`flex items-center justify-between p-4 border rounded-md ${connections[key as keyof typeof connections]
+                            className={`flex items-center justify-between flex-col md:flex-row p-4 border rounded-md ${connections[key as keyof typeof connections]
                                 ? "bg-green-100 border-green-400"
                                 : "bg-gray-100 border-gray-300"
                                 }`}

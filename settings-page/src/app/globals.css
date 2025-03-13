@@ -33,3 +33,15 @@ body {
 .text-secondary {
   color: #5f6875;
 }
+
+.zime-settings-fow {
+  @media screen and (max-width: 1023px) {
+    order: 2;
+  }
+}
+
+.zime-settings-progressbar {
+  @media screen and (max-width: 1023px) {
+    order: 1;
+  }
+}

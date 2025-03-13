@@ -9,7 +9,7 @@ interface ProgressBarprops {
 
 const ProgressBar = ({ progress, sections }: ProgressBarprops) => {
     return (
-        <Card className="lg:mt-[82px] mt-[40px]">
+        <Card className="lg:mt-[82px] md:mt-[40px]">
             <p className="text-grey font-semibold text-xl flex justify-between items-center">
                 Setup Progress
                 {progress != 0 && <span className="text-sm">{`${progress}%`}</span>}

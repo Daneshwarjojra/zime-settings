@@ -23,7 +23,7 @@ const ProfileSettings = ({ updateProgress }: ProfileProps) => {
     return (
         <Card className="mt-[30px]">
             <h2 className="text-lg font-bold mb-[8px]">My Profile</h2>
-            <div className="grid grid-flow-col lg:grid-flow-row grid-cols-2 gap-x-4">
+            <div className="grid grid-flow-row grid-cols-1 lg:grid-cols-2 gap-x-4">
                 <Input
                     type="text"
                     placeholder="Full Name"
