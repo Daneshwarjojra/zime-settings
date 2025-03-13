@@ -45,7 +45,7 @@ const RecordingSettings = ({ updateProgress }: ProfileProps) => {
             {isConnected && <ul className="mt-[20px]">
                 <li className="mb-[15px]">
                     <Checkbox
-                        children="External Meetings (External Host)"
+                        text="External Meetings (External Host)"
                         name="externalHost"
                         className="me-[10px]"
                         checked={recordingCategory.externalHost}
@@ -54,7 +54,7 @@ const RecordingSettings = ({ updateProgress }: ProfileProps) => {
                 </li>
                 <li className="mb-[15px]">
                     <Checkbox
-                        children="External Meetings (Internal Host)"
+                        text="External Meetings (Internal Host)"
                         name="internalHost"
                         className="me-[10px]"
                         checked={recordingCategory.internalHost}
@@ -63,7 +63,7 @@ const RecordingSettings = ({ updateProgress }: ProfileProps) => {
                 </li>
                 <li>
                     <Checkbox
-                        children="Internal Meetings"
+                        text="Internal Meetings"
                         name="internal"
                         className="me-[10px]"
                         checked={recordingCategory.internal}

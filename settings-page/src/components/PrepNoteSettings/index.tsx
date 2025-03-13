@@ -73,7 +73,7 @@ const PrepNotesSettings = ({ updateProgress }: ProfileProps) => {
                         <Checkbox
                             value={method}
                             key={method}
-                            children={method}
+                            text={method}
                             checked={deliveryMethods.includes(method)}
                             onChange={(e) => { handleCheckboxChange(e as React.ChangeEvent<HTMLInputElement>) }}
                             className="me-[10px]"

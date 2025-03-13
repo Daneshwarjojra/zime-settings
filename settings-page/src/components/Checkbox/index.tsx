@@ -1,7 +1,7 @@
-import { ChangeEventHandler, JSX } from "react";
+import { JSX } from "react";
 
 interface CheckBoxLabel {
-    children?: JSX.Element | React.ReactNode | string,
+    text?: JSX.Element | React.ReactNode | string,
     checked?: boolean;
     onChange?: (e?: React.ChangeEvent<HTMLInputElement>) => void;
     name?: string,
@@ -11,11 +11,11 @@ interface CheckBoxLabel {
     disabled?: boolean
 }
 
-const Checkbox = ({ children, checked = false, ...props }: CheckBoxLabel) => {
+const Checkbox = ({ text, checked = false, ...props }: CheckBoxLabel) => {
 
     return (<label key={props.key} className="flex items-center">
         <input checked={checked} disabled={props.disabled} className={props.className} value={props.value} onChange={props.onChange} type="checkbox" />
-        {children}
+        {text}
     </label>);
 };
 

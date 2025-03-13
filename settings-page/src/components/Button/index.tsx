@@ -16,7 +16,7 @@ interface ButtonProps {
     | 'secondaryIcon'
     | 'link';
 
-    onClick?: any;
+    onClick?: () => void;
     buttonText?: React.ReactNode;
     disabled?: boolean;
     type?: 'button' | 'submit';
