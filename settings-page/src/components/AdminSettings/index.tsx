@@ -30,7 +30,7 @@ const AdminSettings = ({ updateProgress }: ProfileProps) => {
             <div className="flex items-center justify-between">
                 <div>
                     <h2 className="text-lg font-semibold">Admin Settings</h2>
-                    <p className="text-secondary font-semibold">Manage organization-wide settings</p>
+                    <p className="font-semibold">Manage organization-wide settings</p>
                 </div>
                 <Badge isActive={badge} text={badge ? 'Connected' : 'Not Connected'} />
             </div>
@@ -46,9 +46,9 @@ const AdminSettings = ({ updateProgress }: ProfileProps) => {
                             buttonIconLeft={key === 'salesforce' ? <SalesForceIcon /> : <HubSpotIcon />}
                             subText={connections[key as keyof typeof connections] ? "Connected" : "Not connected"}
                             onClick={() => toggleConnection(key as keyof typeof connections)}
-                            customClassName={`flex capitalize items-center cursor-pointer md:text-start gap-x-3 flex-col md:flex-row p-4 border rounded-md ${connections[key as keyof typeof connections]
+                            customClassName={`flex capitalize text-[#000] items-center cursor-pointer md:text-start gap-x-3 flex-col md:flex-row p-4 border rounded-md ${connections[key as keyof typeof connections]
                                 ? "bg-green-100 border-green-400"
-                                : "bg-gray-100 border-gray-100"
+                                : "bg-gray-100 border-gray-400"
                                 }`
                             }
                         />
@@ -68,9 +68,9 @@ const AdminSettings = ({ updateProgress }: ProfileProps) => {
                             buttonText={key === 'teams' ? 'Microsoft Teams' : key}
                             subText={connections[key as keyof typeof connections] ? "Connected" : "Not connected"}
                             onClick={() => toggleConnection(key as keyof typeof connections)}
-                            customClassName={`flex items-center md:text-start cursor-pointer capitalize gap-x-3 flex-col md:flex-row p-4 border rounded-md ${connections[key as keyof typeof connections]
+                            customClassName={`flex items-center text-[#000] md:text-start cursor-pointer capitalize gap-x-3 flex-col md:flex-row p-4 border rounded-md ${connections[key as keyof typeof connections]
                                 ? "bg-green-100 border-green-400"
-                                : "bg-gray-100 border-gray-100"
+                                : "bg-gray-100 border-gray-400"
                                 }`
                             }
                         />

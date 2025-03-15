@@ -34,7 +34,7 @@ const RecordingSettings = ({ updateProgress }: ProfileProps) => {
             <div className="flex items-center justify-between">
                 <div>
                     <h2 className="text-lg font-bold">My Recordings</h2>
-                    <p className="text-secondary font-semibold">Manage your calendar integration</p>
+                    <p className="font-semibold">Manage your calendar integration</p>
                 </div>
                 <Badge isActive={isConnected} text={isConnected ? 'Active' : 'In Active'} />
             </div>
@@ -42,8 +42,8 @@ const RecordingSettings = ({ updateProgress }: ProfileProps) => {
                 <div className="flex items-center">
                     <Image src='./google.svg' width={32} height={32} alt="google-icon" className="me-[10px]" />
                     <div className="flex flex-col">
-                        <p className="text-primary text-sm">Google Calendar</p>
-                        {isConnected && <p className="text-primary text-sm">Connected</p>}
+                        <p className="text-[#222] dark:text-[#fff] text-sm">Google Calendar</p>
+                        {isConnected && <p className="text-[#222] dark:text-[#fff] text-sm">Connected</p>}
                     </div>
                 </div>
                 <Button onClick={handleConnect} kind="primary" buttonText={isConnected ? 'Disconnect' : 'Connect'} />

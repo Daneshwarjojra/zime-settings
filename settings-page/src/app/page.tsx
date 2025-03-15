@@ -6,6 +6,7 @@ import RecordingSettings from "@/components/RecordSettings";
 import AdminSettings from "@/components/AdminSettings";
 import ProgressBar from "@/components/Progressbar";
 import PrepNotesSettings from "@/components/PrepNoteSettings";
+import ThemeSwitch from "@/components/ThemeSwitch";
 
 export type SectionsState = {
   profile: boolean;
@@ -38,11 +39,11 @@ export default function Home() {
   }, [sections]);
 
   return (
-    <div className="flex flex-col lg:flex-row">
+    <div className="flex flex-col lg:flex-row" suppressHydrationWarning={true}>
       <div className="zime-sidebar fixed scale-x-0 w-full max-w-[300] lg:relative lg:scale-x-100">
         <img src='./zime-sidebar.png' className="h-full object-cover w-full" alt="zime-sidebar" width='100%' height='100%' />
       </div>
-      <div className="w-full grid lg:grid-flow-col mt-[60px] gap-x-10 lg:pe-[72px] md:pe[48px] px-[24px]">
+      <div className="w-full grid lg:grid-flow-col mt-[60px] gap-x-10 lg:pe-[72px] md:pe[48px] px-[24px] mb-[70px]">
         <div className="zime-settings-fow col-span-1 mt-[40px] lg:mt-0">
           <h1 className="text-xl font-bold">Settings</h1>
           <p className="text-l font-regular text-grey">Mangae your account settings and preferences</p>
@@ -52,6 +53,7 @@ export default function Home() {
           <AdminSettings updateProgress={updateProgress} />
         </div>
         <div className="zime-settings-progressbar col-span-1">
+          <ThemeSwitch />
           <ProgressBar sections={sections} progress={progress} />
         </div>
       </div>

@@ -28,7 +28,7 @@ const ProfileSettings = ({ updateProgress }: ProfileProps) => {
             <div className="flex items-center justify-between">
                 <div>
                     <h2 className="text-lg font-bold">My Profile</h2>
-                    <p className="text-secondary font-semibold">Update your personal information</p>
+                    <p className="font-semibold">Update your personal information</p>
                 </div>
                 <Badge text={badge ? 'Completed' : 'In Complete'} isActive={badge} />
             </div>

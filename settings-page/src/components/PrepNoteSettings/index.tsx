@@ -34,7 +34,7 @@ const PrepNotesSettings = ({ updateProgress }: ProfileProps) => {
             <div className="flex items-center justify-between">
                 <div>
                     <h2 className="text-lg font-semibold">Call Best Practices</h2>
-                    <p className="text-secondary font-semibold">
+                    <p className="font-semibold">
                         Configure your prep notes settings
                     </p>
                 </div>
@@ -62,7 +62,7 @@ const PrepNotesSettings = ({ updateProgress }: ProfileProps) => {
                 <select
                     value={timing}
                     onChange={handleTimingChange}
-                    className="w-full mt-1 p-2 border rounded-md focus:ring focus:ring-blue-300 disabled:cursor-not-allowed disabled:bg-gray-100"
+                    className="w-full mt-1 p-2 border rounded-md focus:ring focus:ring-blue-300 disabled:cursor-not-allowed disabled:text-[#000] disabled:bg-gray-100"
                     disabled={!isEnabled}
                 >
                     <option>1 hour before</option>

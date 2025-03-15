@@ -1,11 +1,11 @@
 .btn-primary-icon {
-    @apply flex items-center border border-solid rounded-[8px] border-[#000] px-[40px] py-[21px] cursor-pointer;
+    @apply flex items-center border border-solid rounded-[8px] border-[var(--black)] px-[40px] py-[21px] cursor-pointer;
 }
 
 .btn-primary {
-    @apply flex items-center border border-solid rounded-[8px] border-[#000] px-[12px] py-[8px] cursor-pointer;
+    @apply flex items-center border border-solid rounded-[8px] border-[var(--black)] px-[12px] py-[8px] cursor-pointer;
 }
 
 .btn-primary-filled {
-    @apply flex items-center border border-solid rounded-[8px] border-[#000] px-[12px] py-[8px] cursor-pointer bg-[#000] text-[#fff];
+    @apply flex items-center border border-solid rounded-[8px] border-[var(--black)] px-[12px] py-[8px] cursor-pointer bg-[#000] text-[#fff];
 }
