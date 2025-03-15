@@ -1,7 +1,7 @@
 'use client';
 
 import Image from "next/image";
-import { useCallback, useEffect, useState } from "react";
+import { JSX, useCallback, useEffect, useState } from "react";
 
 import './style.scss';
 
@@ -14,17 +14,21 @@ interface ButtonProps {
     | 'secondaryFilled'
     | 'primaryIcon'
     | 'secondaryIcon'
-    | 'link';
-
+    | 'link'
+    | 'custom';
     onClick?: () => void;
     buttonText?: React.ReactNode;
     disabled?: boolean;
     type?: 'button' | 'submit';
     buttonIcon?: string;
     className?: string;
+    customClassName?: string;
     width?: number;
     height?: number;
     alt?: string | undefined;
+    subText?: string;
+    key?: string;
+    buttonIconLeft?: JSX.Element | React.ReactNode
 }
 
 const Button = ({ kind, buttonIcon, ...props }: ButtonProps) => {
@@ -53,6 +57,9 @@ const Button = ({ kind, buttonIcon, ...props }: ButtonProps) => {
             case `secondaryIcon`:
                 setButtonClass('btn-secondary-icon');
                 break;
+            case `custom`:
+                setButtonClass('btn-custom');
+                break;
             default:
                 setButtonClass('btn-primary');
                 break;
@@ -65,11 +72,17 @@ const Button = ({ kind, buttonIcon, ...props }: ButtonProps) => {
 
     return (
         <button
+            key={props.key}
             type={props.type}
-            className={`${buttonClass} ${props.className}`}
+            className={`${buttonClass} ${props.className} ${props.customClassName}`}
             onClick={props.onClick}
         >
-            {props.buttonText}
+            {props.buttonIconLeft && props.buttonIconLeft}
+            <span className="flex">
+                {props.buttonText}
+                {props.subText && <br />}
+                {props.subText && props.subText}
+            </span>
             {buttonIcon ? (<Image width={props.width} height={props.height} alt={props.alt || ''} src={buttonIcon} />) : null}
         </button>
     )

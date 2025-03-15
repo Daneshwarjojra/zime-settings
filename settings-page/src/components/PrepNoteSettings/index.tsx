@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { ProfileProps } from "@/components/ProfileSettings";
 import Card from "@/components/Card";
 import Checkbox from "../Checkbox";
+import Badge from "@/components/Badge";
 
 const PrepNotesSettings = ({ updateProgress }: ProfileProps) => {
     const [isEnabled, setIsEnabled] = useState(false);
@@ -30,17 +31,22 @@ const PrepNotesSettings = ({ updateProgress }: ProfileProps) => {
     return (
         <Card className="mt-[30px]">
             {/* Header */}
-            <h2 className="text-lg font-semibold">Call Best Practices</h2>
-            <p className="text-secondary font-semibold">
-                Configure your prep notes settings
-            </p>
+            <div className="flex items-center justify-between">
+                <div>
+                    <h2 className="text-lg font-semibold">Call Best Practices</h2>
+                    <p className="text-secondary font-semibold">
+                        Configure your prep notes settings
+                    </p>
+                </div>
+                <Badge isActive={deliveryMethods.length > 0} text={deliveryMethods.length > 0 ? 'Selected' : 'Not Selected'} />
+            </div>
 
             {/* Toggle Switch */}
             <div className="flex items-center justify-between mt-4">
                 <span className="text-sm font-medium">Enable Prep Notes</span>
                 <button
                     onClick={handleToggle}
-                    className={`w-10 h-5 flex items-center rounded-full p-1 transition-colors ${isEnabled ? "bg-blue-500" : "bg-gray-300"
+                    className={`w-10 h-5 flex items-center cursor-pointer rounded-full p-1 transition-colors ${isEnabled ? "bg-blue-500" : "bg-gray-300"
                         }`}
                 >
                     <div

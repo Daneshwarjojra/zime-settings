@@ -2,6 +2,7 @@ import { SectionsState } from "@/app/page";
 import { useState, useEffect } from "react";
 import Card from "@/components/Card";
 import Input from "@/components/Input";
+import Badge from "@/components/Badge";
 
 export interface ProfileProps {
     updateProgress: (section: keyof SectionsState, status: boolean) => void;
@@ -14,15 +15,23 @@ const ProfileSettings = ({ updateProgress }: ProfileProps) => {
         managerEmail: "",
         location: "",
     });
+    const [badge, setBadge] = useState<boolean>(false);
 
     useEffect(() => {
         const filledFields = Object.values(profile).every((val) => val !== "");
+        setBadge(filledFields);
         updateProgress("profile", filledFields);
-    }, [profile, updateProgress]);
+    }, [Object.values(profile), updateProgress]);
 
     return (
         <Card className="mt-[30px]">
-            <h2 className="text-lg font-bold mb-[8px]">My Profile</h2>
+            <div className="flex items-center justify-between">
+                <div>
+                    <h2 className="text-lg font-bold">My Profile</h2>
+                    <p className="text-secondary font-semibold">Update your personal information</p>
+                </div>
+                <Badge text={badge ? 'Completed' : 'In Complete'} isActive={badge} />
+            </div>
             <div className="grid grid-flow-row grid-cols-1 lg:grid-cols-2 gap-x-4">
                 <Input
                     type="text"

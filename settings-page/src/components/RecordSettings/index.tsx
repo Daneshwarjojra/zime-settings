@@ -4,6 +4,7 @@ import { ProfileProps } from "@/components/ProfileSettings";
 import Card from "@/components/Card";
 import Button from "@/components/Button";
 import Checkbox from "@/components/Checkbox";
+import Badge from "@/components/Badge";
 
 interface RecordingProps {
     externalHost?: boolean,
@@ -30,8 +31,13 @@ const RecordingSettings = ({ updateProgress }: ProfileProps) => {
 
     return (
         <Card className="mt-[30px]">
-            <h2 className="text-lg font-bold">My Recordings</h2>
-            <p className="text-secondary font-semibold">Manage your calendar integration</p>
+            <div className="flex items-center justify-between">
+                <div>
+                    <h2 className="text-lg font-bold">My Recordings</h2>
+                    <p className="text-secondary font-semibold">Manage your calendar integration</p>
+                </div>
+                <Badge isActive={isConnected} text={isConnected ? 'Active' : 'In Active'} />
+            </div>
             <div className="flex justify-between items-center mt-[24px]">
                 <div className="flex items-center">
                     <Image src='./google.svg' width={32} height={32} alt="google-icon" className="me-[10px]" />

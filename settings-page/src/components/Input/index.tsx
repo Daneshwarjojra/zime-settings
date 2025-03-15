@@ -29,7 +29,7 @@ interface InputProps {
 export default function Input(props: InputProps) {
     return (
         <div className="flex flex-col mt-[16px]">
-            {props.fieldLabel && <p className="font-manrope font-semibold">{props.fieldLabel}</p>}
+            {props.fieldLabel && <p className="font-manrope font-semibold text-[#000] text-sm mb-[8px]">{props.fieldLabel}</p>}
             <input placeholder={props.placeholder} className={`p-[8px] border border-solid border-[#cccccc] rounded-lg ${props.className}`} type={props.type} value={props.value} onChange={props.onChange} />
         </div>
     )

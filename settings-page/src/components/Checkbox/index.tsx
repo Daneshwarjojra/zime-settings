@@ -13,7 +13,7 @@ interface CheckBoxLabel {
 
 const Checkbox = ({ text, checked = false, ...props }: CheckBoxLabel) => {
 
-    return (<label key={props.key} className="flex items-center">
+    return (<label key={props.key} className={`flex items-center`}>
         <input checked={checked} disabled={props.disabled} className={props.className} value={props.value} onChange={props.onChange} type="checkbox" />
         {text}
     </label>);

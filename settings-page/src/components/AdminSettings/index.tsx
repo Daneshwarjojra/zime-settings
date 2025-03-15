@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import Card from "@/components/Card";
 import Button from "@/components/Button";
 import { ProfileProps } from "@/components/ProfileSettings";
+import Badge from "@/components/Badge";
+import { HubSpotIcon, SalesForceIcon, Slack, Teams } from "./Icons/assets";
 
 const AdminSettings = ({ updateProgress }: ProfileProps) => {
     const [connections, setConnections] = useState({
@@ -10,9 +12,11 @@ const AdminSettings = ({ updateProgress }: ProfileProps) => {
         slack: false,
         teams: false,
     });
+    const [badge, setBadge] = useState<boolean>(false);
 
     useEffect(() => {
         const allConnected = Object.values(connections).some((val) => val === true);
+        setBadge(Object.values(connections).some((val) => val === true));
         updateProgress("admin", allConnected);
     }, [Object.values(connections), updateProgress]);
 
@@ -23,27 +27,31 @@ const AdminSettings = ({ updateProgress }: ProfileProps) => {
     return (
         <Card className="mt-[30px]">
             {/* Header */}
-            <h2 className="text-lg font-semibold">Admin Settings</h2>
-            <p className="text-secondary font-semibold">Manage organization-wide settings</p>
-
+            <div className="flex items-center justify-between">
+                <div>
+                    <h2 className="text-lg font-semibold">Admin Settings</h2>
+                    <p className="text-secondary font-semibold">Manage organization-wide settings</p>
+                </div>
+                <Badge isActive={badge} text={badge ? 'Connected' : 'Not Connected'} />
+            </div>
             {/* CRM Integration */}
             <div className="mt-4">
                 <h3 className="text-md font-medium">CRM Integration</h3>
-                <div className="grid grid-cols-2 gap-2 mt-2">
+                <div className="grid grid-cols-2 gap-3 mt-2">
                     {["salesforce", "hubspot"].map((key) => (
-                        <button
+                        <Button
                             key={key}
+                            kind="custom"
+                            buttonText={key}
+                            buttonIconLeft={key === 'salesforce' ? <SalesForceIcon /> : <HubSpotIcon />}
+                            subText={connections[key as keyof typeof connections] ? "Connected" : "Not connected"}
                             onClick={() => toggleConnection(key as keyof typeof connections)}
-                            className={`flex items-center justify-between flex-col md:flex-row p-4 border rounded-md ${connections[key as keyof typeof connections]
+                            customClassName={`flex capitalize items-center cursor-pointer md:text-start gap-x-3 flex-col md:flex-row p-4 border rounded-md ${connections[key as keyof typeof connections]
                                 ? "bg-green-100 border-green-400"
-                                : "bg-gray-100 border-gray-300"
-                                }`}
-                        >
-                            <span className="font-medium capitalize">{key}</span>
-                            <span className="text-sm">
-                                {connections[key as keyof typeof connections] ? "Connected" : "Not connected"}
-                            </span>
-                        </button>
+                                : "bg-gray-100 border-gray-100"
+                                }`
+                            }
+                        />
                     ))}
                 </div>
             </div>
@@ -51,21 +59,21 @@ const AdminSettings = ({ updateProgress }: ProfileProps) => {
             {/* Communication Platforms */}
             <div className="mt-4">
                 <h3 className="text-md font-medium">Communication Platforms</h3>
-                <div className="grid grid-cols-2 gap-2 mt-2">
+                <div className="grid grid-cols-2 gap-3 mt-2">
                     {["slack", "teams"].map((key) => (
-                        <button
+                        <Button
                             key={key}
+                            kind='custom'
+                            buttonIconLeft={key === 'teams' ? <Teams /> : <Slack />}
+                            buttonText={key === 'teams' ? 'Microsoft Teams' : key}
+                            subText={connections[key as keyof typeof connections] ? "Connected" : "Not connected"}
                             onClick={() => toggleConnection(key as keyof typeof connections)}
-                            className={`flex items-center justify-between flex-col md:flex-row p-4 border rounded-md ${connections[key as keyof typeof connections]
+                            customClassName={`flex items-center md:text-start cursor-pointer capitalize gap-x-3 flex-col md:flex-row p-4 border rounded-md ${connections[key as keyof typeof connections]
                                 ? "bg-green-100 border-green-400"
-                                : "bg-gray-100 border-gray-300"
-                                }`}
-                        >
-                            <span className="font-medium capitalize">{key === "teams" ? "Microsoft Teams" : key}</span>
-                            <span className="text-sm">
-                                {connections[key as keyof typeof connections] ? "Connected" : "Not connected"}
-                            </span>
-                        </button>
+                                : "bg-gray-100 border-gray-100"
+                                }`
+                            }
+                        />
                     ))}
                 </div>
             </div>
